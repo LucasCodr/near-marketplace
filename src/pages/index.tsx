@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { Product, useMarketplace } from '../hooks/useMarketplace'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Badge, Button, Card, Group, Image, SimpleGrid, Text } from '@mantine/core'
 import { formatNearAmount } from 'near-api-js/lib/utils/format'
 import { IconMapPin } from '@tabler/icons'
@@ -9,9 +9,9 @@ const Home: NextPage = () => {
   const [products, setProducts] = useState<Product[]>([])
   const { getProducts } = useMarketplace({ env: 'testnet' })
 
-  getProducts().then((data) => setProducts(data ?? []))
-
-  console.log(products)
+  useEffect(() => {
+    getProducts().then((data) => setProducts(data ?? []))
+  }, [])
 
   return products.length ? (
     <SimpleGrid
