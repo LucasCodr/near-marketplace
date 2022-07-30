@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     getProducts().then((data) => setProducts(data ?? []))
-  }, [])
+  }, [getProducts])
 
   return products.length ? (
     <SimpleGrid
