@@ -32,10 +32,10 @@ const AppHeader: React.FC = () => {
 
   const { classes } = useStyles()
 
-  const { login, signOut, account } = useWallet({ env: 'testnet' })
+  const { login, signOut, account, balance } = useWallet()
 
   return (
-    <Header height={70} p="xs" className={classes.header}>
+    <Header height={70} p="md" className={classes.header}>
       <Text size={26} weight="bold" variant="gradient">
         NEAR Marketplace
       </Text>
@@ -60,6 +60,9 @@ const AppHeader: React.FC = () => {
               </Menu.Target>
 
               <Menu.Dropdown>
+                <Menu.Label>Balance</Menu.Label>
+                <Menu.Item closeMenuOnClick={false}>{balance} NEAR</Menu.Item>
+
                 <Menu.Label>Application</Menu.Label>
                 <Menu.Item color="red" icon={<IconDoorExit size={14} />} onClick={signOut}>
                   Sign out
