@@ -30,7 +30,7 @@ const Home: NextPage = () => {
           <Group position="apart" mt="md" mb="xs">
             <Text weight={500}>{product.name}</Text>
             <Badge color="red" variant="light">
-              {formatNearAmount(product.sold.toString(), 2)} SOLD
+              {product.sold} SOLD
             </Badge>
           </Group>
 
