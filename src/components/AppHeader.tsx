@@ -37,7 +37,7 @@ const AppHeader: React.FC = () => {
   return (
     <Header height={70} p="md" className={classes.header}>
       <Text size={26} weight="bold" variant="gradient">
-        NEAR Marketplace
+        NEAR Marketplace (DEV)
       </Text>
 
       <Group>
